@@ -12,8 +12,10 @@ func formHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Fprintf(w, "POST request successful")
+
 	name := r.FormValue("name")
 	address := r.FormValue("address")
+
 	fmt.Fprintf(w, "Name = %s\n", name)
 	fmt.Fprintf(w, "Address = %s\n", address)
 }
@@ -32,6 +34,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	fileServer := http.FileServer(http.Dir("./static"))
+	
 	http.Handle("/", fileServer)
 	http.HandleFunc("/form", formHandler)
 	http.HandleFunc("/hello", helloHandler)
