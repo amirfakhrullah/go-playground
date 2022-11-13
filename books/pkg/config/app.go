@@ -12,7 +12,7 @@ func Connect() {
 	url := os.Getenv("RAILWAY_MYSQL")
 	d, err := gorm.Open(mysql.Open(url), &gorm.Config{})
 	if err != nil {
-		panic("failed to connect db")
+		panic("Failed to connect db")
 	}
 
 	db = d
